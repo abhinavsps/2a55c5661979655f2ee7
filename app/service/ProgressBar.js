@@ -1,36 +1,18 @@
-import PropTypes from 'prop-types';
-import {ActivityIndicator,StyleSheet, View} from 'react-native';
-import React from 'react';
+import React, { Component } from 'react';
+import { Container, Header, Content, Spinner } from 'native-base';
 
 const ProgressBar = (props) => {
-
-const { hide } = props;
+  const { hide } = props;
     if (hide) {
       return null;
       } else {
         return (
-          <View style={[styles.loading]}>
-            <ActivityIndicator size="large" color="gray" />
-          </View>
+          <Container>
+            <Content>
+              <Spinner />
+            </Content>
+          </Container>
         );
       }
 };
-
-const styles = StyleSheet.create({
-    loading: {
-      position: 'absolute',
-      left: 0,
-      right: 0,
-      top: 0,
-      bottom: 0,
-      justifyContent: 'center',
-      alignItems: 'center',
-      zIndex:10
-    }
-})
-
-ProgressBar.propTypes = {
- hide: PropTypes.bool,
-};
-
-export default ProgressBar;
+  export default ProgressBar;

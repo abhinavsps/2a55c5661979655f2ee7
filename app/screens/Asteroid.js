@@ -1,8 +1,5 @@
 import React,{useState} from 'react';
-import { View, StyleSheet} from 'react-native';
-import { ApiConfig } from '../service/Api';
-import { BaseUrl,apikey} from '../service/ApiConfig';
-import { Container, InputGroup, Input,Content, Button, Text,StyleProvider } from 'native-base';
+import { Container,Content, Card, CardItem, Text, Body } from 'native-base';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import {useRoute} from '@react-navigation/native'
 
@@ -20,44 +17,47 @@ function Asteroid(){
 
     },[])
 
-
-    // const getAsteroid=()=>{
-    //     new ApiConfig().getJSON(BaseUrl+asteroidId+"?api_key="+apikey)
-    //     .then((response) => {
-    //         console.log(response.data)
-    //     }).catch((ERROR) => {
-    //         if(ERROR.response.status===404){
-    //             alert("Data not found")
-    //         }
-    //     })
-    // }
-
     return(
         
         <Container>
             <Content style={{width:"80%",marginTop:hp("10%"),alignSelf:"center"}}>
-               <Text>Name: {name}</Text>
-               <Text>URL: {url}</Text>
-               <Text>Hazardous {hazardous.toString()}</Text>
+                <Card>
+                    <CardItem header bordered>
+                        <Text>Name</Text>
+                    </CardItem>
+                    <CardItem bordered>
+                        <Body>
+                            <Text>
+                                {name}
+                            </Text>
+                        </Body>
+                    </CardItem>
+                    <CardItem footer bordered>
+                        <Text>URL</Text>
+                    </CardItem>
+                    <CardItem bordered>
+                        <Body>
+                            <Text>
+                            {url}
+                            </Text>
+                        </Body>
+                    </CardItem>
+                    <CardItem footer bordered>
+                        <Text>Hazardous</Text>
+                    </CardItem>
+                    <CardItem bordered>
+                        <Body>
+                            <Text>
+                                {hazardous.toString()}
+                            </Text>
+                        </Body>
+                    </CardItem>
 
-
-                
-                {/* <Content >
-                        <Button primary> Primary </Button>
-                </Content> */}
-
+                </Card>
             </Content>
 
         </Container>
     )
 }
-const customTheme = {
-    'NativeBase.Button': {
-      customStyleProp: {
-        height: 70,
-        borderRadius: 35,
-        marginTop:50
-      },
-    }
-}
+
 export default Asteroid;

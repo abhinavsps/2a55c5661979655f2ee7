@@ -1,8 +1,6 @@
 import * as React from 'react';
-import { View, ActivityIndicator, StyleSheet } from 'react-native';
 import { NavigationContainer, } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import NavigationService from './NavigationService';
 import Home from "./screens/Home"
 import Asteroid from "./screens/Asteroid"
 
@@ -14,9 +12,7 @@ function AppNavigator() {
 
 
   return (
-    <NavigationContainer ref={navigatorRef => {
-      NavigationService.setTopLevelNavigator(navigatorRef)
-    }}>
+    <NavigationContainer >
       <RootStack.Navigator >
           <RootStack.Screen name="Home" component={Home} />
           <RootStack.Screen name="Asteroid" component={Asteroid} />
